@@ -1,0 +1,14 @@
+K 14
+svn:executable
+V 1
+*
+K 13
+svn:mergeinfo
+V 181
+/incubator/wookie/branches/pluggablepersistence/widgets/natter/smileys/coffee.png:948461-988031
+/incubator/wookie/branches/standalone/widgets/natter/smileys/coffee.png:827972-831908
+K 13
+svn:mime-type
+V 24
+application/octet-stream
+END

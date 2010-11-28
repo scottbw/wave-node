@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<html>
+<head>
+  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Underground Empire</title> 
+  
+  <!-- Core libraries -->
+  
+  <script type='text/javascript' src='../../client/diff_match_patch.js'> </script>
+  <script type='text/javascript' src='../../client/json2.js'> </script>
+  <script type='text/javascript' src='../../client/socket.io.js'> </script>
+  <script type='text/javascript' src='../../client/wave.js'> </script>
+  
+  <!-- Player Context -->
+  <script>
+    var player_class = "warrior";
+    wave.setSharedDataKey("game1");
+    wave.setViewer("yyyy","brian the swordsman","images/medal_gauntlet.jpg");
+  </script>
+  
+  <!-- Game libraries -->
+  <script type='text/javascript' src='map.js'> </script>
+  <script type='text/javascript' src='monsters.js'> </script>
+  <script type='text/javascript' src='main.js'> </script>
+  
+
+  
+  <link rel="stylesheet" href="main.css" type="text/css"/>   
+</head>
+<body onload="init()">	
+    <div id="gameframe">
+        <div id="gamearea">
+            <div id="effects"></div>
+            <div id="sprites"></div>
+            <div id="map"></div>
+        </div>
+    </div>
+    <div id="toolbar">
+        <div id="info"></div>
+        <div id="score"></div>
+        <div id="health"></div>
+    </div>	
+    
+    <div id="players">
+    </div>
+    <div id="messages">
+    </div>
+    <div id="debug" style="position:absolute; left:400px"><p>DEBUG:</p> 
+    </div>
+</body>
+</html>

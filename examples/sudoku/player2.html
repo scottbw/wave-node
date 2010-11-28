@@ -1,0 +1,243 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<html>
+<head>
+
+
+  <script type='text/javascript' src='../../client/diff_match_patch.js'> </script>
+  <script type='text/javascript' src='../../client/json2.js'> </script>
+  <script type='text/javascript' src='../../client/socket.io.js'> </script>
+  <script type='text/javascript' src='../../client/wave.js'> </script>
+
+  
+    <script>
+    wave.setSharedDataKey("sudoku_game_1");
+    wave.setViewer("xxxx","bob","smileys/alien.png");
+  </script>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="sudoku.js"></script>
+<script type="text/javascript" src="json.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</head>
+<body onload="init();">
+<div id="debugConsole">
+  <input type=button id=clear value='Clear Debug'/>
+  <input type=button id=reset value='Reset All States'/>
+  <input type=button id=print value='Print All States'/>  
+  <br>
+  <div id='debug'></div>
+</div>
+<br>
+<div align="left">
+<div id=main>
+  <div id='gameDisplay'>
+      <div id='loading'><br>loading ... </div>
+      <div id='display'>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <table id="grid1" cellspacing="0">
+                <tr>
+                  <td id=cell_0></td>
+                  <td id=cell_1></td>
+                  <td id=cell_2></td>
+                </tr>
+                <tr>
+                  <td id=cell_9></td>
+                  <td id=cell_10></td>
+                  <td id=cell_11></td>
+                </tr>
+                <tr>
+                  <td id=cell_18></td>
+                  <td id=cell_19></td>
+                  <td id=cell_20></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table id="grid2" cellspacing="0">
+                <tr>
+                  <td id=cell_3></td>
+                  <td id=cell_4></td>
+                  <td id=cell_5></td>
+                </tr>
+                <tr>
+                  <td id=cell_12></td>
+                  <td id=cell_13></td>
+                  <td id=cell_14></td>
+                </tr>
+                <tr>
+                  <td id=cell_21></td>
+                  <td id=cell_22></td>
+                  <td id=cell_23></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table id="grid3" cellspacing="0">
+                <tr>
+                  <td id=cell_6></td>
+                  <td id=cell_7></td>
+                  <td id=cell_8></td>
+                </tr>
+                <tr>
+                  <td id=cell_15></td>
+                  <td id=cell_16></td>
+                  <td id=cell_17></td>
+                </tr>
+                <tr>
+                  <td id=cell_24></td>
+                  <td id=cell_25></td>
+                  <td id=cell_26></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table id="grid4" cellspacing="0">
+                <tr>
+                  <td id=cell_27></td>
+                  <td id=cell_28></td>
+                  <td id=cell_29></td>
+                </tr>
+                <tr>
+                  <td id=cell_36></td>
+                  <td id=cell_37></td>
+                  <td id=cell_38></td>
+                </tr>
+                <tr>
+                  <td id=cell_45></td>
+                  <td id=cell_46></td>
+                  <td id=cell_47></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table id="grid5" cellspacing="0">
+                <tr>
+                  <td id=cell_30></td>
+                  <td id=cell_31></td>
+                  <td id=cell_32></td>
+                </tr>
+                <tr>
+                  <td id=cell_39></td>
+                  <td id=cell_40></td>
+                  <td id=cell_41></td>
+                </tr>
+                <tr>
+                  <td id=cell_48></td>
+                  <td id=cell_49></td>
+                  <td id=cell_50></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table id="grid6" cellspacing="0">
+                <tr>
+                  <td id=cell_33></td>
+                  <td id=cell_34></td>
+                  <td id=cell_35></td>
+                </tr>
+                <tr>
+                  <td id=cell_42></td>
+                  <td id=cell_43></td>
+                  <td id=cell_44></td>
+                </tr>
+                <tr>
+                  <td id=cell_51></td>
+                  <td id=cell_52></td>
+                  <td id=cell_53></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table id="grid7" cellspacing="0">
+                <tr>
+                  <td id=cell_54></td>
+                  <td id=cell_55></td>
+                  <td id=cell_56></td>
+                </tr>
+                <tr>
+                  <td id=cell_63></td>
+                  <td id=cell_64></td>
+                  <td id=cell_65></td>
+                </tr>
+                <tr>
+                  <td id=cell_72></td>
+                  <td id=cell_73></td>
+                  <td id=cell_74></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table id="grid8" cellspacing="0">
+                <tr>
+                  <td id=cell_57></td>
+                  <td id=cell_58></td>
+                  <td id=cell_59></td>
+                </tr>
+                <tr>
+                  <td id=cell_66></td>
+                  <td id=cell_67></td>
+                  <td id=cell_68></td>
+                </tr>
+                <tr>
+                  <td id=cell_75></td>
+                  <td id=cell_76></td>
+                  <td id=cell_77></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table id="grid9" cellspacing="0">
+                <tr>
+                  <td id=cell_60></td>
+                  <td id=cell_61></td>
+                  <td id=cell_62></td>
+                </tr>
+                <tr>
+                  <td id=cell_69></td>
+                  <td id=cell_70></td>
+                  <td id=cell_71></td>
+                </tr>
+                <tr>
+                  <td id=cell_78></td>
+                  <td id=cell_79></td>
+                  <td id=cell_80></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>		
+	</div>
+  
+  <div id="info">
+    <div id="messages"></div>
+    <br><br>
+    <div id="rankingDisplay"></div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Presence Exam
+
+This example shows dynamic participant data used to create a live "presence" list of connected users. 
+
+Opening and closing the "alice", "bob" and "chris" pages is dynamically reflected in other open pages.
+

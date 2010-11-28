@@ -1,0 +1,95 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+html {
+height:100%; 
+padding:0; 
+margin:0; 
+border:0; 
+font-size:80%; 
+font-family: "trebuchet ms", tahoma, verdana, arial, sans-serif;
+/* hide overflow:hidden from IE5/Mac */ 
+/* \*/ 
+overflow: hidden; 
+/* */ 
+}
+
+body{
+ height:100%; 
+ margin:0;
+ color: #000000;
+ background:#fff;
+}
+
+div#chatlog
+{
+  width: 100%;
+  height: 353px;
+  overflow: auto; 
+}
+
+div#input
+{
+  height: 30px;
+  background: #ECF2FA;
+  display:table;
+  width: 100%;
+  padding: 2px;
+}
+
+form
+{
+  display:table; 
+    width: 100%;
+}
+
+label{
+  display:table-cell; 
+  width: 45px;
+  padding: 2px;
+}
+
+input#text
+{
+  display:table-cell; 
+  width: 95%;
+  margin-top: 2px;
+  background-color: #e0f0f0;
+  border-bottom: 1px solid #E6E6E6;
+  border-left: 1px solid #C3C3C3;
+  border-right: 1px solid #E6E6E6;
+  border-top: 1px solid #C3C3C3;
+  color: #444;
+  height: 16px;
+}
+
+.icon {
+    height:32px;
+    width: 32px; 
+    vertical-align: text-top; 
+    float:left;
+    padding:2px
+}
+
+.post {
+    padding: 2px;
+}
+
+.who {
+    padding: 2px;
+    font-weight:bold;
+    color:blue;
+}

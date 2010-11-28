@@ -1,0 +1,178 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+html {
+height:100%; 
+padding:0; 
+margin:0; 
+border:0; 
+font-size:80%; 
+font-family: "trebuchet ms", tahoma, verdana, arial, sans-serif;
+/* hide overflow:hidden from IE5/Mac */ 
+/* \*/ 
+overflow: hidden; 
+/* */ 
+}
+
+body{
+ height:100%; 
+ width: 384px;
+ margin:0;
+ color: #000000;
+ background:#fff;
+}
+
+#gameframe{
+ position: absolute;
+ overflow: hidden;
+ width:384px;
+ height: 384px;
+ z-index:1;
+}
+
+#gamearea{
+ position: absolute;
+ background-color: black;
+ z-index:2;
+}
+
+#map {
+ position:absolute;
+ z-index:3;
+}
+
+#sprites {
+ position:absolute;
+ z-index:4;
+}
+
+/*
+ * Map sprites
+ */
+ 
+.tile {
+ background-image:url('images/tileset.gif');
+ width: 32px; 
+ height: 32px;
+ float: left;
+ margin: 0;
+ padding: 0;
+ }
+.wall {background-position:-96px 96px}
+.wall.dark {background-position:-128px 96px}
+.wall.darker {background-position:-160px 96px}
+
+.door {background-position:-0px -224px}
+.open_door {background-position:-64px -224px}
+.stairs_up {background-position:-64px -288px}
+.stairs_down {background-position:-96px -288px}
+
+.floor {background-position:-192px -96px}
+.floor.dark {background-position:-224px -96px}
+.floor.darker {background-position:-256px -96px}
+
+.lava {background-position:0px -192px}
+
+.darkest {background-image: none; background:#000}
+
+/* 
+ * player sprites
+ */
+ 
+.human {
+ background-image:url('images/charset.png');
+ width: 32px; 
+ height: 32px;
+ position: absolute;
+ margin: 0;
+ padding: 0;
+ }
+.warrior {background-position:0px 0px}
+.assassin {background-position:-32px 0px}
+.druid {background-position:-64px 0px} 
+
+/* 
+ * monster sprites
+ */
+ 
+.monster {
+ background-image:url('images/monsters.png');
+ width: 32px; 
+ height: 32px;
+ position: absolute;
+ margin: 0;
+ padding: 0;
+ }
+.green_ooze {background-position:0px 0px}
+.blue_ooze {background-position:-32px 0px}
+.blue_jelly {background-position:0px -32px} 
+.orange_jelly {background-position:-32px -32px} 
+
+/*
+ * Toolbar
+ */
+
+#toolbar {
+ background-image:url('images/toolbar.jpg');
+ width:384px;
+ color: white;
+ position:absolute;
+ top:384px;
+}
+
+/*
+ * Message area
+ */
+#messages {
+ background-image:url('images/scroll.png');
+ background-repeat: no-repeat;
+ width: 384px;
+ height: 64px;
+ padding-top: 20px;
+ padding-left: 40px;
+ color: black;
+ overflow:none;
+ position:absolute;
+ top:400px;
+} 
+
+/*
+ * Player info
+ */
+
+.icon {
+    height:32px;
+    width: 32px; 
+    vertical-align: text-top; 
+    float:left;
+    padding:2px
+}
+
+.player_info {
+    margin-left: 32px;
+    height:32px;
+}
+
+.post {
+    padding: 2px;
+}
+
+.who {
+    padding: 2px;
+    font-weight:bold;
+    color:blue;
+}
+

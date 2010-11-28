@@ -1,0 +1,10 @@
+K 14
+svn:executable
+V 1
+*
+K 13
+svn:mergeinfo
+V 191
+/incubator/wookie/branches/pluggablepersistence/widgets/natter/smileys/Emoticons.plist:948461-988031
+/incubator/wookie/branches/standalone/widgets/natter/smileys/Emoticons.plist:827972-831908
+END

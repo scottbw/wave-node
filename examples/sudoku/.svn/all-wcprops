@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku
+END
+main.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/main.js
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/config.xml
+END
+json.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/json.js
+END
+sudoku.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1005012/incubator/wookie/trunk/widgets/sudoku/sudoku.js
+END
+style.css
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/style.css
+END
+jquery.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/jquery.js
+END
+icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/icon.png
+END
+sudoku.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/sudoku.html
+END
+Sudoku.gif
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/Sudoku.gif
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/988048/incubator/wookie/trunk/widgets/sudoku/build.xml
+END
