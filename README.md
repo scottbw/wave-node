@@ -13,6 +13,14 @@ You need to install Node.js with SocketIO and Keys:
 	$ npm install keys
 	$ npm install redis
 	
+## Running the examples
+
+To run the examples, you need to start your Redis server, and start Wave-Node using:
+
+    $ node server.js
+    
+You can then run the examples by opening examples/index.htm in a browser and following the instructions on the page.
+	
 ## Client API
 
 Each page or widget wanting to use the service needs to import the following JavaScript files:
