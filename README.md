@@ -9,7 +9,7 @@ apply the patches to their local state model. So no matter how big the state mod
 
 You need to install Node.js with SocketIO and Keys:
 
-	$ npm install socketio
+	$ npm install socket.io
 	$ npm install keys
 	$ npm install redis
 	
