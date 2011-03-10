@@ -15,13 +15,13 @@ Install Wave using NPM with:
 
 To create a Wave server instance, attach it to a http server instance as follows:
 
-    $ var server = http.createServer(function(req, res){ 
-    $    res.writeHead(200, {'Content-Type': 'text/html'}); 
-    $    res.end('<h1>Wave Gadget API Server</h1>');   
-    $ });
-    $ var wave = require('wave').Server;
-    $ wave.attach(server);
-    $ server.listen(8000, "127.0.0.1");
+    var server = http.createServer(function(req, res){ 
+      res.writeHead(200, {'Content-Type': 'text/html'}); 
+      res.end('<h1>Wave Gadget API Server</h1>');   
+    });
+    var wave = require('wave').Server;
+    wave.attach(server);
+    server.listen(8000, "127.0.0.1");
 
 ## Running the examples
 
