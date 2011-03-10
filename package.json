@@ -1,0 +1,34 @@
+{ "name"          : "wave"
+, "description"   : "Wave Gadget API implementation"
+, "keywords"      : ["wave", "websocket", "google wave"]
+, "author"        : "Scott Wilson <scott.bradley.wilson@gmail.com>"
+
+, "version"       : "0.1.0"
+, "engines"       : {"node": ">=0.2.4"}
+
+, "bugs"          : "http://github.com/scottbw/wave-node/issues"
+
+, "main"          : "./lib/wave"
+
+, "maintainers"   : [ { "name"    : "Scott Wilson"
+                      , "email"   : "scott.bradley.wilson@gmail.com"
+                      , "web"     : "http://github.com/scottbw/wave-node"
+                      }
+                    ]
+
+, "licenses"      : [ { "type"    : "Apache Software License 2.0"
+                      , "url"     : "http://www.apache.org/licenses/LICENSE-2.0"
+                      }
+                    ]
+
+, "repositories"  : [ { "type"    : "git"
+                      , "url"     : "git://github.com/scobbtw/wave-node.git"
+                      }
+                    ]
+
+, "dependencies"  :  { "keys"    : ">=0.1.2"
+        	      ,"socket.io": ">=0.6.8"
+        	      ,"redis": ">=0.5.2"
+    		      }
+		    
+}

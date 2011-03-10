@@ -7,17 +7,27 @@ apply the patches to their local state model. So no matter how big the state mod
 
 ## Installation
 
-You need to install Node.js with SocketIO and Keys:
+Install Wave using NPM with:
 
-	$ npm install socket.io
-	$ npm install keys
-	$ npm install redis
-	
+    $ npm install wave
+    
+## Creating a Wave server
+
+To create a Wave server instance, attach it to a http server instance as follows:
+
+    $ var server = http.createServer(function(req, res){ 
+    $    res.writeHead(200, {'Content-Type': 'text/html'}); 
+    $    res.end('<h1>Wave Gadget API Server</h1>');   
+    $ });
+    $ var wave = require('wave').Server;
+    $ wave.attach(server);
+    $ server.listen(8000, "127.0.0.1");
+
 ## Running the examples
 
-To run the examples, you need to start your Redis server, and start Wave-Node using:
+To run the examples, you need to start your Redis server, and start a new Wave server using:
 
-    $ node server.js
+    $ node examples/server/server.js
     
 You can then run the examples by opening examples/index.htm in a browser and following the instructions on the page.
 	

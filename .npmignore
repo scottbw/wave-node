@@ -1,0 +1,5 @@
+etc/
+examples/
+client/
+.DS_Store
+.git*
