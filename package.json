@@ -3,7 +3,7 @@
 , "keywords"      : ["wave", "websocket", "google wave"]
 , "author"        : "Scott Wilson <scott.bradley.wilson@gmail.com>"
 
-, "version"       : "0.2.0"
+, "version"       : "0.2.1"
 , "engines"       : {"node": ">=0.2.4"}
 
 , "bugs"          : "http://github.com/scottbw/wave-node/issues"
