@@ -1,6 +1,6 @@
 # Wave-Node
 
-This is an implementation of the Google Wave Gadget API using Node.js, WebSockets, and a key/value store. 
+This is an implementation of the Google Wave Gadget API using Node.js, Socket.io, and Redis. 
 
 It uses diff-match-patch to synchronize states across multiple instances: clients send patches to the server, which then propagates the patches to other clients which
 apply the patches to their local state model. So no matter how big the state model becomes, each update event is quite small.
@@ -22,6 +22,17 @@ To create a Wave server instance, attach it to a http server instance as follows
     var wave = require('wave').Server;
     wave.attach(server);
     server.listen(8000, "127.0.0.1");
+    
+    
+Note that you must have Redis running.
+
+## Setting Redis options
+
+You can set various options for redis by passing a map of options to the attach() method, e.g.:
+
+    wave.attach(server, {"host":"127.0.0.1", "port":"6379", "clear":true});
+    
+The "clear" option, when set true, clears out all existing states. Other valid options are "host", "port", and any standard Redis configuration options you can pass to node_redis using redis.createClient(). See [node-redis](http://github.com/mranney/node_redis) for more information.
 
 ## Running the examples
 
