@@ -113,11 +113,9 @@
     this.init = function(){
         // Automatically set the Viewer and Shared Data Key if we're in a Wookie context
         if (window.Widget) {
-            if (Widget.preferences) {
-                wave.setSharedDataKey(Widget.preferences.sharedDataKey);
-                if (Widget.preferences.viewer){
-                   wave.__setViewer(JSON.parse(Widget.preferences.viewer));
-                }
+            if (widget.viewerId){
+                wave.setSharedDataKey(widget.preferences.sharedDataKey);
+                wave.setViewer(widget.viewerId, widget.viewerDisplayName, widget.viewerThumbnailUrl);
             }
         }
         

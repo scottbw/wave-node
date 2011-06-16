@@ -15,9 +15,10 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project default="build-feature" basedir="." name="feature build file">
-	<property name="wookie.features.dir" location="../"/>
-	<property name="feature.shortname" value="nodewave"/>
-	<property name="feature.uri" value="http://wave.google.com/node"/>
-	<import file="../build.xml"/>
-</project>
+<feature>
+	<name>http://wave.google.com/node</name>
+	<script src="diff_match_patch.js"/>
+	<script src="json2.js"/>
+	<script src="socket.io.js"/>
+    <script src="wave.js"/>
+</feature>

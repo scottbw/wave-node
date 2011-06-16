@@ -28,11 +28,10 @@
 <body onload="init()">	
     <div id="chatlog"></div>	
     <div id="input">
-        <form action="" onsubmit="sendMessage()">        
-            <label for="text">Chat:</label>
-            <input id="text"/><input type="submit" style="display:none"/>
-        </form>
+        <label for="text">Chat:</label>
+        <input id="text" onkeypress="dwr.util.onReturn(event, sendMessage)"/>
     </div>
+    
 </body>
 <!-- fix forIE cashing - must go here even though its in the wrong place
 <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">

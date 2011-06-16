@@ -1,32 +1,36 @@
 ### Eclipse Workspace Patch 1.0
 #P wookie
-Index: src/org/apache/wookie/controller/ParticipantsController.java
+Index: src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java
 ===================================================================
---- src/org/apache/wookie/controller/ParticipantsController.java	(revision 988048)
-+++ src/org/apache/wookie/controller/ParticipantsController.java	(working copy)
-@@ -25,6 +25,7 @@
- 
- import org.apache.log4j.Logger;
- import org.apache.wookie.beans.IParticipant;
-+import org.apache.wookie.beans.IPreference;
- import org.apache.wookie.beans.IWidgetInstance;
- import org.apache.wookie.beans.util.IPersistenceManager;
- import org.apache.wookie.beans.util.PersistenceManagerFactory;
-@@ -176,6 +177,17 @@
- 		participant.setSharedDataKey(instance.getSharedDataKey());
- 		participant.setWidget(instance.getWidget());
- 		persistenceManager.save(participant);
-+		
-+		// If viewer, add to prefs
-+		if (participant.getParticipantId().equals(instance.getUserId())){
-+			IPreference pref = persistenceManager.newInstance(IPreference.class);
-+			pref.setDkey("viewer");				
-+			pref.setDvalue(ParticipantHelper.createJSONParticipantDocument(participant));
-+			pref.setReadOnly(true);
-+			instance.getPreferences().add(pref);
-+			persistenceManager.save(instance);
+--- src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java	(revision 1134049)
++++ src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java	(working copy)
+@@ -26,6 +26,7 @@
+ import org.apache.wookie.ajaxmodel.IWidgetAPI;
+ import org.apache.wookie.beans.IDescription;
+ import org.apache.wookie.beans.IName;
++import org.apache.wookie.beans.IParticipant;
+ import org.apache.wookie.beans.IPreference;
+ import org.apache.wookie.beans.ISharedData;
+ import org.apache.wookie.beans.IWidget;
+@@ -35,6 +36,7 @@
+ import org.apache.wookie.controller.PropertiesController;
+ import org.apache.wookie.controller.WidgetInstancesController;
+ import org.apache.wookie.helpers.Notifier;
++import org.apache.wookie.helpers.ParticipantHelper;
+ import org.apache.wookie.helpers.SharedDataHelper;
+ import org.apache.wookie.queues.QueueManager;
+ import org.apache.wookie.server.ContextListener;
+@@ -145,6 +147,13 @@
+ 		map.put("width", width);//$NON-NLS-1$
+ 		map.put("height", height);//$NON-NLS-1$
+ 		
++		// Extra Viewer information
++		IParticipant viewer = persistenceManager.findParticipantViewer(widgetInstance);
++		if (viewer != null){
++		  map.put("viewerId", viewer.getParticipantId());
++		  map.put("viewerDisplayName", viewer.getParticipantDisplayName());
++		  map.put("viewerThumbnailUrl", viewer.getParticipantThumbnailUrl());
 +		}
-+		
- 		return true;
+ 		return map;
  	}
  
