@@ -26,7 +26,7 @@ var server = http.createServer(function(req, res){
 });
 
 var wave = require('wave').Server;
-wave.attach(server, {"host":"127.0.0.1", "port":"6379", "clear":false});
+wave.attach(server, {"host":"127.0.0.1", "port":"6379", "clear":true});
 server.listen(PORT, "127.0.0.1");
 console.log('Server running at http://127.0.0.1:'+PORT); 
 
