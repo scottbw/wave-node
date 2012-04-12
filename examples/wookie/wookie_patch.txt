@@ -2,35 +2,38 @@
 #P wookie
 Index: src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java
 ===================================================================
---- src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java	(revision 1134049)
+--- src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java	(revision 1238828)
 +++ src/org/apache/wookie/ajaxmodel/impl/WidgetAPIImpl.java	(working copy)
-@@ -26,6 +26,7 @@
+@@ -26,12 +26,15 @@
  import org.apache.wookie.ajaxmodel.IWidgetAPI;
  import org.apache.wookie.beans.IDescription;
  import org.apache.wookie.beans.IName;
 +import org.apache.wookie.beans.IParticipant;
  import org.apache.wookie.beans.IPreference;
- import org.apache.wookie.beans.ISharedData;
  import org.apache.wookie.beans.IWidget;
-@@ -35,6 +36,7 @@
+ import org.apache.wookie.beans.IWidgetInstance;
++import org.apache.wookie.beans.SharedContext;
+ import org.apache.wookie.beans.util.IPersistenceManager;
+ import org.apache.wookie.beans.util.PersistenceManagerFactory;
  import org.apache.wookie.controller.PropertiesController;
- import org.apache.wookie.controller.WidgetInstancesController;
- import org.apache.wookie.helpers.Notifier;
-+import org.apache.wookie.helpers.ParticipantHelper;
- import org.apache.wookie.helpers.SharedDataHelper;
++import org.apache.wookie.helpers.SharedDataHelper;
  import org.apache.wookie.queues.QueueManager;
  import org.apache.wookie.server.ContextListener;
-@@ -145,6 +147,13 @@
+ import org.apache.wookie.server.LocaleHandler;
+@@ -125,6 +128,16 @@
  		map.put("width", width);//$NON-NLS-1$
  		map.put("height", height);//$NON-NLS-1$
  		
 +		// Extra Viewer information
-+		IParticipant viewer = persistenceManager.findParticipantViewer(widgetInstance);
++		IParticipant viewer = new SharedContext(widgetInstance).getViewer(widgetInstance);
 +		if (viewer != null){
 +		  map.put("viewerId", viewer.getParticipantId());
 +		  map.put("viewerDisplayName", viewer.getParticipantDisplayName());
 +		  map.put("viewerThumbnailUrl", viewer.getParticipantThumbnailUrl());
 +		}
++		// Shared data
++		map.put("sharedDataKey", SharedDataHelper.getExternalSharedDataKey(widgetInstance));
++		
  		return map;
  	}
- 
+ 	

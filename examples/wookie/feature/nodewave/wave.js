@@ -111,30 +111,28 @@
     // Initialize the wave client
     // 
     this.init = function(){
+    
         // Automatically set the Viewer and Shared Data Key if we're in a Wookie context
         if (window.Widget) {
             if (widget.viewerId){
-                wave.setSharedDataKey(widget.preferences.sharedDataKey);
-                wave.setViewer(widget.viewerId, widget.viewerDisplayName, widget.viewerThumbnailUrl);
+                wave.setSharedDataKey(widget.sharedDataKey);
+                wave.__setViewer(widget.viewerId, widget.viewerDisplayName, widget.viewerThumbnailUrl);
             }
         }
         
         // Setup websockets
-        io.setPath('socketio/');
-        this.socket = new io.Socket("localhost", {"port":"8081"}); 
-        this.socket.connect();
+        this.socket = io.connect("http://localhost:8081"); 
          
-        //Setup events and callbacks
-        this.socket.addEvent('message', function(data){
-            var json = JSON.parse(data);
+        // Setup events and callbacks
+        this.socket.on('message', function(data){
             // There are two types of data we can get - participants and state
-            if (json.type == 'participants'){
-                wave.__setParticipants(json.data);
+            if (data.type == 'participants'){
+                wave.__setParticipants(data.data);
                 if (wave.participant_callback) wave.participant_callback();
             }
-            if (json.type == 'state'){
+            if (data.type == 'state'){
                 // Apply delta to current state
-                wave.getState().__applyPatches(json.data);
+                wave.getState().__applyPatches(data.data);
                 //wave.setState(json.data);
                 if (wave.state_callback) wave.state_callback();
             } 
@@ -190,7 +188,7 @@
         if (window.Widget) msg.idkey = Widget.instanceid_key;
         msg.sharedDataKey = wave.sharedDataKey;
         msg.viewer = this.viewer;
-        this.socket.send(JSON.stringify(msg));
+        this.socket.json.send(msg);
     }
     
     // Update the internal participants array
@@ -232,7 +230,7 @@
             msg.key = "0";
             if (window.widget) msg.key = Widget.instanceid_key;
             msg.delta = thedelta;
-            this.socket.send(JSON.stringify(msg));    
+            this.socket.json.send(msg);    
         }
 	}
     
