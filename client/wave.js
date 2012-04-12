@@ -111,16 +111,7 @@
     // Initialize the wave client
     // 
     this.init = function(){
-        // Automatically set the Viewer and Shared Data Key if we're in a Wookie context
-        if (window.Widget) {
-            if (Widget.preferences) {
-                wave.setSharedDataKey(Widget.preferences.sharedDataKey);
-                if (Widget.preferences.viewer){
-                   wave.__setViewer(JSON.parse(Widget.preferences.viewer));
-                }
-            }
-        }
-        
+            
         // Setup websockets
         this.socket = io.connect("http://localhost:8081"); 
          
