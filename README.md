@@ -51,7 +51,7 @@ Each page or widget wanting to use the service needs to import the following Jav
     socket.io.js
     wave.js
     
-These can all be found in the "client" folder
+These can all be found in the "client" folder; you can also load the current socket.io.js client from the server itself (e.g. http://localhost:8081/socket.io/socket.io.js)
 
 In addition you need to call the following methods in your own scripts after importing the wave.js library:
 

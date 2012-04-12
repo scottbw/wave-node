@@ -3,8 +3,8 @@
 , "keywords"      : ["wave", "websocket", "google wave"]
 , "author"        : "Scott Wilson <scott.bradley.wilson@gmail.com>"
 
-, "version"       : "0.2.2"
-, "engines"       : {"node": ">=0.4.0"}
+, "version"       : "0.2.3"
+, "engines"       : {"node": ">=0.6.0"}
 
 , "bugs"          : "http://github.com/scottbw/wave-node/issues"
 
@@ -27,8 +27,8 @@
                     ]
 
 , "dependencies"  :  { "keys"    : ">=0.1.2"
-        	      ,"socket.io": ">=0.7.0"
-        	      ,"redis": ">=0.5.2"
+        	      ,"socket.io": ">=0.9.5"
+        	      ,"redis": ">=0.7.0"
     		      }
 		    
 }
